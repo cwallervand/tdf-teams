@@ -14,8 +14,8 @@ tdfTeamsApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/teams', {
   	templateUrl: 'partials/team-list.html', controller: 'TeamListCtrl'
   }).
-  when('/view2', {
-  	templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'
+  when('/teams/:teamId', {
+  	templateUrl: 'partials/team-detailed.html', controller: 'TeamDetailedCtrl'
   }).
   otherwise({redirectTo: '/teams'});
 }]);

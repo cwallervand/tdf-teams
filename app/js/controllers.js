@@ -4,10 +4,12 @@
 
 var tdfTeamsControllers = angular.module('tdfTeams.controllers', []);
 
-tdfTeamsControllers.controller('TeamListCtrl', ['$scope', 'TeamsServices', function($scope, TeamsServices) {
-	$scope.teams = TeamsServices.query();
-}]);
+tdfTeamsControllers.controller('TeamListCtrl', ['$scope', 'TeamsServices', 
+	function tdfTeamListCtrlFn($scope, TeamsServices) {
+		$scope.teams = TeamsServices.query();
+	}]);
 
-tdfTeamsControllers.controller('MyCtrl2', ['$scope', function($scope) {
-
-}]);
+tdfTeamsControllers.controller('TeamDetailedCtrl', ['$scope', '$routeParams', 'TeamsServices',
+	function tdfTeamDetailedCtrlFn($scope, $routeParams, TeamsServices) {
+		$scope.team = TeamsServices.get({teamId: $routeParams.teamId});
+	}]);

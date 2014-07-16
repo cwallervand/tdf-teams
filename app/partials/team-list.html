@@ -1,8 +1,10 @@
 <h1>Tour de France Teams</h1>
 <ul class="teams">
 	<li ng-repeat="team in teams" class="team">
-		<div class="name">{{team.name}} <span>({{team.shortName}})</span></div>
+		<div class="name">{{team.name}} ({{team.shortName}})</div>
 		<div class="country">Land: {{team.country.name}}</div>
+		<div class="manager">Manager: {{team.manager}}</div>
+		<a href="#/teams/{{team.id}}">Read more about the team</a>
 		<div class="ridersContainer">
 			<div>Riders</div>
 			<ul class="riders">
@@ -12,5 +14,4 @@
 			</ul>
 		</div>
 	</li>
-
 </ul>
