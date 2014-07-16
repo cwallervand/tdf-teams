@@ -1,0 +1,16 @@
+<h1>Tour de France Teams</h1>
+<ul class="teams">
+	<li ng-repeat="team in teams" class="team">
+		<div class="name">{{team.name}} <span>({{team.shortName}})</span></div>
+		<div class="country">Land: {{team.country.name}}</div>
+		<div class="ridersContainer">
+			<div>Riders</div>
+			<ul class="riders">
+				<li ng-repeat="rider in team.participants">
+					<div class="name">{{rider.firstName}} {{rider.lastName}}</div>
+				</li>
+			</ul>
+		</div>
+	</li>
+
+</ul>

@@ -1,8 +1,8 @@
 {
-  "name": "tdf-teams",
+  "name": "tdfTeams",
   "private": true,
   "version": "0.0.0",
-  "description": "Learning Angular with Tour de France teams",
+  "description": "Learning Angular",
   "repository": "https://github.com/angular/angular-seed",
   "license": "MIT",
   "devDependencies": {

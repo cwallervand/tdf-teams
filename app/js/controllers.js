@@ -2,10 +2,12 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', [])
-  .controller('MyCtrl1', ['$scope', function($scope) {
+var tdfTeamsControllers = angular.module('tdfTeams.controllers', []);
 
-  }])
-  .controller('MyCtrl2', ['$scope', function($scope) {
+tdfTeamsControllers.controller('TeamListCtrl', ['$scope', 'TeamsServices', function($scope, TeamsServices) {
+	$scope.teams = TeamsServices.query();
+}]);
 
-  }]);
+tdfTeamsControllers.controller('MyCtrl2', ['$scope', function($scope) {
+
+}]);
