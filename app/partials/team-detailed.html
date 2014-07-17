@@ -1,1 +1,25 @@
-<h1>{{team.name}}</h1>
+<h1>{{team.name}} ({{team.shortName}})</h1>
+<h2>About the team</h2>
+<!-- Need ngSanitize to use ng-bind-html, see bower.json and app.js -->
+<div class="aboutTeam" ng-bind-html="team.about.text">
+</div>
+<h2>Honours</h2>
+<div class="honours" ng-bind-html="team.honours.text">
+</div>
+<h2>Stats</h2>
+<ul class="stats">
+	<li>Riders left: {{team.stats.ridersLeft}}</li>
+	<li>Stages won as a team: {{team.stats.stagesWon}}</li>
+	<li>Stages won individual: {{team.stats.stagesWonIndividual}}</li>
+	<li>Overall position: {{team.stats.overallPosition}}</li>
+</ul>
+<h2>Riders</h2>
+<ul class="riders">
+	<li class="rider" ng-repeat="rider in team.participants">
+		<a href="#/teams/{{team.id}}/riders/{{rider.id}}">
+			<img ng-src="{{rider.images[0].url}}"/>
+			{{rider.firstName}} {{rider.lastName}}
+		</a>
+	</li>
+</ul>
+

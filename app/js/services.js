@@ -37,4 +37,30 @@ tdfTeamsServices.service('TeamsService', function(TeamsAPI) {
 	}
 });
 
+tdfTeamsServices.factory('RidersAPI', ['$resource',
+	function tdfTeamsServicesFn($resource){
+		return $resource('http://rest.tv2.no/cycling-dw-rest/event/12312/participants/:riderId', {/*paramDefaults*/}, {
+			query: {
+				method:'GET', 
+				params:{riderId:''}, 
+				isArray:true
+			}
+		});
+}]);
+
+tdfTeamsServices.service('RidersService', function(RidersAPI) {
+	this.getRider = function(riderId) {
+		var rider = _.filter(this.riders, function(rider) {
+			return rider.id == riderId;
+		});
+		if (rider.length === 0) {
+			return RidersAPI.get({riderId: riderId});
+		}
+		return rider[0];
+	}
+
+});
+
+
+
 
